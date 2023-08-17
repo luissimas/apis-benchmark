@@ -49,7 +49,9 @@ export class MovieModel extends Model {
   budget?: number;
 }
 
-const fastify = Fastify();
+const fastify = Fastify({
+  logger: true,
+});
 fastify.get("/db", async (req, res) => MovieModel.query().limit(100));
 fastify.get("/cache", async (req, res) => res.send(movies));
 
