@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "outDir": "./dist",
+        "baseUrl": "./src"
+    }
+}
