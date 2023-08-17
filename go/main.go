@@ -34,7 +34,7 @@ func createData() []Movie {
 			Director:    "any-movie-director",
 			Description: "any-movie-description",
 			Duration:    1000,
-			Budget:      9999999999999,
+			Budget:      10000,
 		}
 		movies = append(movies, m)
 	}
@@ -57,11 +57,11 @@ func main() {
 		var movies []Movie
 		err := db.Find(&movies).Limit(100).Error
 		if err != nil {
-			c.IndentedJSON(http.StatusInternalServerError, nil)
+			c.JSON(http.StatusInternalServerError, nil)
 			log.Fatal(err)
 			return
 		}
-		c.IndentedJSON(http.StatusOK, movies)
+		c.JSON(http.StatusOK, movies)
 	})
 	router.GET("/cache", func(c *gin.Context) { c.IndentedJSON(http.StatusOK, movies) })
 

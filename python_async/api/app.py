@@ -16,7 +16,7 @@ movies: List[Movie] = [
         release_date=datetime.now(),
         director="any-director",
         description="any-description",
-        duration=10000,
+        duration=1000,
         budget=10000,
     )
     for _ in range(1000)
