@@ -30,7 +30,7 @@ app = FastAPI()
 def get_db(
     db: Session = Depends(make_db),
 ):
-    result = db.execute(select(MovieModel).limit(100))
+    result = db.execute(select(MovieModel).limit(20))
     return result.scalars().all()
 
 

@@ -55,7 +55,7 @@ func main() {
 
 	router.GET("/db", func(c *gin.Context) {
 		var movies []Movie
-		err := db.Find(&movies).Limit(100).Error
+		err := db.Limit(20).Find(&movies).Error
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, nil)
 			log.Fatal(err)
