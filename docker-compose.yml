@@ -1,0 +1,54 @@
+version: "3.1"
+
+services:
+  go-api:
+    container_name: go-api
+    build:
+      context: ./go
+      dockerfile: ./Dockerfile
+    ports:
+      - "3001:3000"
+  node-api:
+    container_name: node-api
+    build:
+      context: ./node
+      dockerfile: ./Dockerfile
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+    ports:
+      - "3002:3000"
+  python-sync-api:
+    container_name: python-sync-api
+    build:
+      context: ./python_sync
+      dockerfile: ./Dockerfile
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+    ports:
+      - "3003:3000"
+  python-async-api:
+    container_name: python-async-api
+    build:
+      context: ./python_async
+      dockerfile: ./Dockerfile
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+    ports:
+      - "3004:3000"
+  postgres:
+    image: postgres:latest
+    container_name: performance-test-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

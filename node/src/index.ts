@@ -3,6 +3,9 @@ import { v4 as uuid } from "uuid";
 import { Model } from "objection";
 import Knex from "knex";
 
+const port = Number(process.env.PORT) || 3000;
+const host = process.env.HOST || "localhost";
+
 export interface Movie {
   id: string;
   name: string;
@@ -26,7 +29,7 @@ const movies: Movie[] = new Array(1000).fill(0).map((_) => ({
 const knex = Knex({
   client: "pg",
   connection: {
-    host: "localhost",
+    host: "postgres",
     port: 5432,
     user: "postgres",
     password: "password",
@@ -49,14 +52,14 @@ export class MovieModel extends Model {
 }
 
 const fastify = Fastify({
-  logger: true,
+  logger: false,
 });
 fastify.get("/db", async (req, res) => MovieModel.query().limit(20));
 fastify.get("/cache", async (req, res) => movies);
 
 const run = async () => {
   try {
-    await fastify.listen({ port: 3000 });
+    await fastify.listen({ port, host });
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);

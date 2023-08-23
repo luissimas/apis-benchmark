@@ -51,7 +51,8 @@ func main() {
 
 	movies := createData()
 
-	router := gin.Default()
+	router := gin.New()
+	router.Use(gin.Recovery())
 
 	router.GET("/db", func(c *gin.Context) {
 		var movies []Movie
