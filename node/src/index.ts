@@ -1,10 +1,11 @@
 import Fastify from "fastify";
 import { v4 as uuid } from "uuid";
-import { Model } from "objection";
-import Knex from "knex";
+import { Pool } from "pg";
 
 const port = Number(process.env.PORT) || 3000;
 const host = process.env.HOST || "localhost";
+const connectionString =
+  process.env.DB_URL || "postgresql://postgres:password@localhost:5432/db";
 
 export interface Movie {
   id: string;
@@ -16,46 +17,35 @@ export interface Movie {
   budget?: number;
 }
 
-const movies: Movie[] = new Array(1000).fill(0).map((_) => ({
-  id: uuid(),
-  name: "any-name",
-  release_date: new Date(),
-  director: "any-director",
-  description: "any-description",
-  duration: 1000,
-  budget: 10000,
-}));
-
-const knex = Knex({
-  client: "pg",
-  connection: {
-    host: "postgres",
-    port: 5432,
-    user: "postgres",
-    password: "password",
-    database: "db",
-  },
-});
-Model.knex(knex);
-export class MovieModel extends Model {
-  static get tableName() {
-    return "movies";
+const makeMovies = (): Movie[] => {
+  const result: Movie[] = new Array(1000);
+  for (let i = 0; i < result.length; i++) {
+    result[i] = {
+      id: uuid(),
+      name: "any-name",
+      release_date: new Date(),
+      director: "any-director",
+      description: "any-description",
+      duration: 1000,
+      budget: 10000,
+    };
   }
-
-  id: string;
-  name: string;
-  release_date: Date;
-  director: string;
-  description?: string;
-  duration?: number;
-  budget?: number;
-}
+  return result;
+};
 
 const fastify = Fastify({
   logger: false,
 });
-fastify.get("/db", async (req, res) => MovieModel.query().limit(20));
-fastify.get("/cache", async (req, res) => movies);
+const pool = new Pool({ connectionString });
+
+fastify.get("/db", async (req, res) => {
+  const result = await pool.query("SELECT * FROM movies LIMIT 20");
+  res.send(result.rows);
+});
+fastify.get("/cache", async (req, res) => {
+  const result = makeMovies();
+  res.send(result);
+});
 
 const run = async () => {
   try {

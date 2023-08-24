@@ -6,11 +6,8 @@ authors = ["Luís Simas"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-python-dotenv = "^1.0.0"
-alembic = "^1.11.2"
 fastapi = "^0.101.0"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
-sqlalchemy = {extras = ["asyncio"], version = "^2.0.20"}
 asyncpg = "^0.28.0"
 
 

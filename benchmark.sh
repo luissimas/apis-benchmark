@@ -1,15 +1,18 @@
 #!/usr/bin/env sh
 
-duration=2s
-results_dir=results
+duration=5m
+results_dir=results_round_2
+host=35.199.81.182
+server_name=python-async
 
-for port in 3001 3002 3003 3004; do
-  echo "Starting tests for server in port $port..."
-  for endpoint in db cache; do
-    for connections in 1 10 50 100; do
-      mkdir -p $results_dir/$port/$endpoint
-      bombardier --connections=$connections --duration=$duration --print=result --format=json localhost:$port/$endpoint | jq > $results_dir/$port/$endpoint/$connections.json
-    done
-  done
-  echo "Done."
+for endpoint in db cache; do
+  echo "Starting tests for $endpoint endpoint..."
+	curl -s $host/$endpoint >/dev/null
+	for connections in 1 10 50 100; do
+    echo "$connections connections..."
+		mkdir -p $results_dir/$server_name/$endpoint
+		bombardier --connections=$connections --duration=$duration --timeout=10s --print=result --format=json $host/$endpoint | jq >$results_dir/$server_name/$endpoint/$connections.json
+	done
 done
+
+echo "Done."

@@ -1,12 +1,13 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "skipLibCheck": true,
-        "target": "ES6",
-        "strictPropertyInitialization": false,
-        "module": "CommonJS",
-        "outDir": "./dist",
-        "moduleResolution": "node",
-        "baseUrl": "./src"
-    }
+        "compilerOptions": {
+                "strict": true,
+                "skipLibCheck": true,
+                "target": "ES6",
+                "strictPropertyInitialization": false,
+                "esModuleInterop": true,
+                "module": "CommonJS",
+                "outDir": "./dist",
+                "moduleResolution": "node",
+                "baseUrl": "./src"
+        }
 }
