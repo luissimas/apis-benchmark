@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 duration=5m
-results_dir=results_round_2
+results_dir=results_cloud_sql
 host=35.199.81.182
-server_name=python-async
+server_name=go
 
 for endpoint in db cache; do
   echo "Starting tests for $endpoint endpoint..."

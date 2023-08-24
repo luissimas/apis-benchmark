@@ -8,8 +8,8 @@ from fastapi import FastAPI
 from psycopg2.pool import SimpleConnectionPool
 
 pool = SimpleConnectionPool(
-    minconn=10,
-    maxconn=10,
+    minconn=1,
+    maxconn=100,
     dbname=DB_NAME,
     host=DB_HOST,
     port=DB_PORT,

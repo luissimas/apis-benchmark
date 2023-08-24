@@ -36,7 +36,7 @@ const makeMovies = (): Movie[] => {
 const fastify = Fastify({
   logger: false,
 });
-const pool = new Pool({ connectionString });
+const pool = new Pool({ connectionString, max: 100 });
 
 fastify.get("/db", async (req, res) => {
   const result = await pool.query("SELECT * FROM movies LIMIT 20");

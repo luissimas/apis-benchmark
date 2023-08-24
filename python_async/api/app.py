@@ -12,7 +12,7 @@ dsn = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 
 async def init_db_pool():
-    return await asyncpg.create_pool(dsn=dsn)
+    return await asyncpg.create_pool(dsn=dsn, min_size=1, max_size=100)
 
 
 @dataclass
