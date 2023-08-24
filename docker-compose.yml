@@ -7,14 +7,7 @@ services:
       context: ./go
       dockerfile: ./Dockerfile
     ports:
-      - "3001:3000"
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 512M
-    depends_on:
-      - postgres
+      - "3000:3000"
   node-api:
     container_name: node-api
     build:
@@ -23,15 +16,9 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 3000
+      DB_URL: "postgresql://postgres:password@35.247.221.248:5432/db"
     ports:
-      - "3002:3000"
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 512M
-    depends_on:
-      - postgres
+      - "3000:3000"
   python-sync-api:
     container_name: python-sync-api
     build:
@@ -40,15 +27,9 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 3000
+      DB_HOST: "35.247.221.248"
     ports:
-      - "3003:3000"
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 512M
-    depends_on:
-      - postgres
+      - "3000:3000"
   python-async-api:
     container_name: python-async-api
     build:
@@ -57,15 +38,9 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 3000
+      DB_HOST: "35.247.221.248"
     ports:
-      - "3004:3000"
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 512M
-    depends_on:
-      - postgres
+      - "3000:3000"
   postgres:
     image: postgres:latest
     container_name: performance-test-postgres
