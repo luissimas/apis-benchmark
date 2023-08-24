@@ -8,6 +8,13 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - "3001:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    depends_on:
+      - postgres
   node-api:
     container_name: node-api
     build:
@@ -18,6 +25,13 @@ services:
       PORT: 3000
     ports:
       - "3002:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    depends_on:
+      - postgres
   python-sync-api:
     container_name: python-sync-api
     build:
@@ -28,6 +42,13 @@ services:
       PORT: 3000
     ports:
       - "3003:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    depends_on:
+      - postgres
   python-async-api:
     container_name: python-async-api
     build:
@@ -38,6 +59,13 @@ services:
       PORT: 3000
     ports:
       - "3004:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    depends_on:
+      - postgres
   postgres:
     image: postgres:latest
     container_name: performance-test-postgres
