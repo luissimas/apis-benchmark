@@ -1,11 +1,35 @@
 #+title:APIs Benchmark
+Comparação de performance entre APIs HTTP equivalentes em 4 runtimes diferentes.
 
+Vale destacar que todos os resultados apresentados foram obtidos através de testes informais, sem rigor científico e de propósito educacional.
+* APIs
+Ao todo foram comparas 4 APIs diferentes:
+
+- Node.js + Fastify + pg
+- Python + FastAPI + psycopg
+- Python + FastAPI + asyncpg
+- Go + Gin + sqlx
+
+Em todos os casos foram utilizadas pools de conexões com o banco de dados com um limite de até 100 conexões. Além disso, foram utilizados os serializadores padrão de cada linguagem ou framework (quando disponível), a fim de simular um cenário comum e explorar o desempenho /out of the box/ de cada ferramenta.
+* Cenários de teste
+Foram conduzidos testes em dois cenários diferentes, a fim de explorar as performance das APIs em situações /IO-bound/ e /CPU-bound/.
+
+1. Serialização de JSON (endpoint =GET /cache=): gera 100 objetos em memória e os retorna serializados em um JSON de aproximadamente 386.6Kb
+2. Interação com o banco de dados (endpoint =GET /db=): busca 20 registros em um banco PostgreSQL e os retorna serializados em um JSON de aproximadamente 6Kb
+* Infraestrutura
+Para rodar o benchmark, as APIs foram executadas numa instância N1 Series do [[https://cloud.google.com/compute][Cloud Compute Engine]] com 1vCPU dedicado e 3.75Gb de RAM. Além disso, a base de dados foi executada numa instância do [[https://cloud.google.com/sql][Cloud SQL]] com 4vCPU, 16GB de RAM e 100GB de SSD.
+
+A ideia foi fazer com que o hardware do servidor fosse um fator limitante, e não o banco de dados. Outro ponto de destaque é que o servidor possui apenas um core, o que inibe possíveis ganhos de performance trazidos com paralelismo. Isso é especialmente relevante quando comparamos runtimes single-threaded como Node.js com linguagens como Go, que são capazes de fazer bom uso de ambientes computacionais multi-threaded.
 * Metodologia
+A simulação de carga feita com a ferramenta [[https://github.com/codesenberg/bombardier][bombardier]] rodando em uma máquina local. Foram feitas rodadas de teste com 1, 10, 50 e 100 conexões concorrentes. Cada rodada teve duração de 5 minutos. A unidade de medida que utilizamos é a de quantas requisições por segundo cada API foi capaz de processar.
 * Resultados
+No cenário de interação com o banco de dados foi possível verificar um ganho de performance bastante expressivo com o uso de drivers de banco de dados assíncronos na API com FastAPI. Além disso, o que mais surpreende é a diferença de performance entre a API em Fastify das outras implementações. Talvez o Node.js realmente seja um runtime bastante otimizado para aplicações single-threaded realizando operações IO-bound.
+
 #+caption: Gráfico com a comparação de desempenho entre as APIs nos 4 diferentes runtimes para a rota GET /db.
 #+attr_org: :width 500
 [[file:assets/db.png]]
 
+Já no cenário focado em serialização de JSON é possível ver uma diferença significativamente maior entre as implementações em Fastify e Go quando comparadas às implementações em Python. Como era de se esperar, tal operação não sofreu impacto dos diferentes drivers de banco de dados utilizados para as implementações em Python, que tiveram desempenho estatisticamente equivalente. Apesar disso, ainda impressiona o fato de que a implementação em Node.js utilizando Fastify performou melhor do que a implementação em Go para uma tarefa CPU-bound.
 
 #+caption: Gráfico com a comparação de desempenho entre as APIs nos 4 diferentes runtimes para a rota GET /cache.
 #+attr_org: :width 500
