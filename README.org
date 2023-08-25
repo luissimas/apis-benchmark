@@ -1,0 +1,12 @@
+#+title:APIs Benchmark
+
+* Metodologia
+* Resultados
+#+caption: Gráfico com a comparação de desempenho entre as APIs nos 4 diferentes runtimes para a rota GET /db.
+#+attr_org: :width 500
+[[file:assets/db.png]]
+
+
+#+caption: Gráfico com a comparação de desempenho entre as APIs nos 4 diferentes runtimes para a rota GET /cache.
+#+attr_org: :width 500
+[[file:assets/cache.png]]
