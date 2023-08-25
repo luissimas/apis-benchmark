@@ -48,6 +48,7 @@ func main() {
 		log.Fatalf("Error creating database connection: %v\n", err)
 	}
 	log.Print("Connected to the database.")
+	defer db.Close()
 
 	router := gin.New()
 	router.Use(gin.Recovery())
@@ -62,7 +63,7 @@ func main() {
 		}
 		c.JSON(http.StatusOK, movies)
 	})
-	router.GET("/cache", func(c *gin.Context) { c.IndentedJSON(http.StatusOK, createMovies()) })
+	router.GET("/cache", func(c *gin.Context) { c.JSON(http.StatusOK, createMovies()) })
 
 	url := fmt.Sprintf("%s:%s", config.GetAPI().Host, config.GetAPI().Port)
 
