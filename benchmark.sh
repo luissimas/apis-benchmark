@@ -3,9 +3,9 @@
 duration=5m
 results_dir=results_cloud_sql
 host=35.199.81.182
-server_name=go
+server_name=python-async
 
-for endpoint in db cache; do
+for endpoint in db; do
   echo "Starting tests for $endpoint endpoint..."
 	curl -s $host/$endpoint >/dev/null
 	for connections in 1 10 50 100; do
