@@ -16,7 +16,7 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 3000
-      DB_URL: "postgresql://postgres:password@35.247.221.248:5432/db"
+      DB_URL: "postgresql://postgres:password@postgres:5432/db"
     ports:
       - "3000:3000"
   python-sync-api:

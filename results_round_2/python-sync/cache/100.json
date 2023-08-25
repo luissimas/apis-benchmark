@@ -1,0 +1,571 @@
+{
+  "spec": {
+    "numberOfConnections": 100,
+    "testType": "timed",
+    "testDurationSeconds": 300,
+    "method": "GET",
+    "url": "http://34.95.137.134:80/cache",
+    "body": "",
+    "stream": false,
+    "timeoutSeconds": 10,
+    "client": "fasthttp"
+  },
+  "result": {
+    "bytesRead": 319572767,
+    "bytesWritten": 219765,
+    "timeTakenSeconds": 317.714041766,
+    "req1xx": 0,
+    "req2xx": 610,
+    "req3xx": 0,
+    "req4xx": 0,
+    "req5xx": 0,
+    "others": 345,
+    "errors": [
+      {
+        "description": "timeout",
+        "count": 214
+      },
+      {
+        "description": "read tcp 192.168.0.245:59478->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:50448->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47072->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:34410->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52768->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52774->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46388->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:59768->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46786->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47090->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:48124->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:42396->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:58656->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:58680->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:44918->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46930->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:44920->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46568->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:60506->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:35312->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:56330->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:60510->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:48154->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:42398->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:36136->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:40538->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:42388->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:49486->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46512->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52630->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47428->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:39500->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46976->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46818->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52160->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:40532->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:54494->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:34064->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:34196->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46854->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47160->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:48136->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:55944->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52130->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47106->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:36726->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:59616->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52086->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:58404->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:35740->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:45788->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47132->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:36372->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:44890->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:56346->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:45480->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52808->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:58188->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:42412->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:56606->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47100->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47532->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:36718->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:54674->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:53008->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46794->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:35454->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:55052->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:39588->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:60802->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:56328->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:34044->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52356->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:60494->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:35306->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:37138->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:45494->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47128->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:39902->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:35834->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:44776->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52612->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:59598->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46564->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:44754->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46414->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46416->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46460->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:59958->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47168->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:36736->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:55070->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46398->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:49474->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47148->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47112->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:48320->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46496->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46988->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52452->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:35722->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:60176->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:60792->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:48132->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:50104->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:56314->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:60096->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:44924->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52816->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:60714->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:50068->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46806->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:44904->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:56496->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:59780->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46840->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:52144->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:44788->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:48296->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:50086->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:45018->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:46582->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47142->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:44762->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:35732->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:35430->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:47182->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:54486->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:54496->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:45408->34.95.137.134:80: i/o timeout",
+        "count": 1
+      },
+      {
+        "description": "read tcp 192.168.0.245:57624->34.95.137.134:80: i/o timeout",
+        "count": 1
+      }
+    ],
+    "latency": {
+      "mean": 32671607.114136126,
+      "stddev": 17365747.733193852,
+      "max": 50219347
+    },
+    "rps": {
+      "mean": 2.8458270735290427,
+      "stddev": 19.70173183310199,
+      "max": 715.5153785720316,
+      "percentiles": {
+        "50": 0,
+        "75": 0,
+        "90": 0,
+        "95": 0,
+        "99": 97.067503
+      }
+    }
+  }
+}

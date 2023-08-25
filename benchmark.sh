@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 duration=5m
-results_dir=results_cloud_sql_round_2
-host=34.95.137.134
-server_name=python-async
+results_dir=results
+server_name=$1
+host=$2
 
 for endpoint in cache db; do
   echo "Starting tests for $endpoint endpoint..."

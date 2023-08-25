@@ -4,37 +4,37 @@
     "testType": "timed",
     "testDurationSeconds": 300,
     "method": "GET",
-    "url": "http://35.199.81.182:80/db",
+    "url": "http://34.95.137.134:80/cache",
     "body": "",
     "stream": false,
     "timeoutSeconds": 10,
     "client": "fasthttp"
   },
   "result": {
-    "bytesRead": 253647877,
-    "bytesWritten": 2576706,
-    "timeTakenSeconds": 300.734799892,
+    "bytesRead": 907581119,
+    "bytesWritten": 222732,
+    "timeTakenSeconds": 308.12571619,
     "req1xx": 0,
-    "req2xx": 39041,
+    "req2xx": 3228,
     "req3xx": 0,
     "req4xx": 0,
     "req5xx": 0,
     "others": 0,
     "latency": {
-      "mean": 769619.475167132,
-      "stddev": 132804.28421929743,
-      "max": 1337175
+      "mean": 9486649.914498141,
+      "stddev": 622822.669946882,
+      "max": 9904224
     },
     "rps": {
-      "mean": 129.8908123737049,
-      "stddev": 280.75304750088344,
-      "max": 2788.0124464701607,
+      "mean": 10.402925868972792,
+      "stddev": 85.43629950454606,
+      "max": 1301.0235151994073,
       "percentiles": {
         "50": 0,
         "75": 0,
-        "90": 595.803695,
-        "95": 884.506628,
-        "99": 1259.132845
+        "90": 0,
+        "95": 0,
+        "99": 460.760108
       }
     }
   }
