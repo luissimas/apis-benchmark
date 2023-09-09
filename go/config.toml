@@ -1,9 +1,0 @@
-[api]
-port = "3000"
-
-[database]
-host = "postgres"
-port = "5432"
-user = "postgres"
-password = "password"
-database = "db"

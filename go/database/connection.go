@@ -8,8 +8,8 @@ import (
 )
 
 func CreateDatabase() (*sqlx.DB, error) {
-	conf := config.GetDB()
-	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", conf.Host, conf.Port, conf.User, conf.Password, conf.Database)
+	conf := config.GetConfig()
+	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", conf.DBHost, conf.DBPort, conf.DBUser, conf.DBPassword, conf.DBDatabase)
 	db, err := sqlx.Connect("postgres", connStr)
 	if err != nil {
 		return nil, err

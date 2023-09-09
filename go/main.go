@@ -42,7 +42,6 @@ func createMovies() []Movie {
 }
 
 func main() {
-	log.Printf("Config loaded:\n\tAPI: %v\n\tDB: %v\n", config.GetAPI(), config.GetDB())
 	db, err := database.CreateDatabase()
 	if err != nil {
 		log.Fatalf("Error creating database connection: %v\n", err)
@@ -65,7 +64,8 @@ func main() {
 	})
 	router.GET("/cache", func(c *gin.Context) { c.JSON(http.StatusOK, createMovies()) })
 
-	url := fmt.Sprintf("%s:%s", config.GetAPI().Host, config.GetAPI().Port)
+	conf := config.GetConfig()
+	url := fmt.Sprintf("%s:%s", conf.ServerHost, conf.ServerPort)
 
 	log.Fatal(router.Run(url))
 }
