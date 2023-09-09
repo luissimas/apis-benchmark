@@ -25,8 +25,8 @@ type Movie struct {
 }
 
 func createMovies() []Movie {
-	var movies []Movie
-	for i := 0; i < 1000; i++ {
+	movies := make([]Movie, 1000)
+	for i := 0; i < len(movies); i++ {
 		m := Movie{
 			ID:          uuid.New(),
 			Name:        "any-movie-name",
@@ -36,7 +36,7 @@ func createMovies() []Movie {
 			Duration:    1000,
 			Budget:      10000,
 		}
-		movies = append(movies, m)
+		movies[i] = m
 	}
 	return movies
 }

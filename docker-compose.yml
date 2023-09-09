@@ -27,7 +27,7 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 3000
-      DB_HOST: "35.247.221.248"
+      DB_HOST: "postgres"
     ports:
       - "3000:3000"
   python-async-api:
@@ -38,7 +38,7 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 3000
-      DB_HOST: "35.247.221.248"
+      DB_HOST: "postgres"
     ports:
       - "3000:3000"
   postgres:
