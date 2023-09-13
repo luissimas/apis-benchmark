@@ -5,7 +5,8 @@ import { Pool } from "pg";
 const port = Number(process.env.PORT) || 3000;
 const host = process.env.HOST || "localhost";
 const connectionString =
-  process.env.DB_URL || "postgresql://postgres:password@localhost:5432/db";
+  process.env.DB_URL ||
+  "postgresql://postgres:password@localhost:5432/database";
 
 export interface Movie {
   id: string;

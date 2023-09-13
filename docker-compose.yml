@@ -13,9 +13,10 @@ services:
       DB_PORT: 5432
       DB_USER: postgres
       DB_PASSWORD: password
-      DB_DATABASE: db
+      DB_DATABASE: database
     ports:
       - "3000:3000"
+
   node-api:
     container_name: node-api
     build:
@@ -24,9 +25,10 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 3000
-      DB_URL: "postgresql://postgres:password@postgres:5432/db"
+      DB_URL: "postgresql://postgres:password@postgres:5432/database"
     ports:
       - "3000:3000"
+
   python-sync-api:
     container_name: python-sync-api
     build:
@@ -38,6 +40,7 @@ services:
       DB_HOST: "postgres"
     ports:
       - "3000:3000"
+
   python-async-api:
     container_name: python-async-api
     build:
@@ -49,6 +52,7 @@ services:
       DB_HOST: "postgres"
     ports:
       - "3000:3000"
+
   postgres:
     image: postgres:latest
     container_name: performance-test-postgres
@@ -57,7 +61,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: db
+      POSTGRES_DB: database
     volumes:
       - pgdata:/var/lib/postgresql/data
 

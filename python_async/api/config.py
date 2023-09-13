@@ -1,6 +1,6 @@
 import os
 
-DB_NAME = os.getenv("DB_NAME") or "db"
+DB_NAME = os.getenv("DB_NAME") or "database"
 DB_HOST = os.getenv("DB_HOST") or "localhost"
 DB_PORT = os.getenv("DB_PORT") or "5432"
 DB_PASS = os.getenv("DB_PASS") or "password"

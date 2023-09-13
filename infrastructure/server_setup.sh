@@ -19,8 +19,3 @@ sudo apt-get update
 
 # Install packages
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-# Build images
-git clone --depth=1 https://github.com/luissimas/apis-benchmark.git
-cd apis-benchmark || exit 1
-sudo docker compose build
