@@ -30,6 +30,8 @@ resource "google_compute_instance" "server_instance" {
     network = "default"
     access_config {}
   }
+
+  tags = ["allow-http"]
 }
 
 resource "google_compute_instance" "client_instance" {
@@ -83,4 +85,21 @@ resource "google_sql_user" "example" {
   instance = google_sql_database_instance.database_instance.name
   name     = var.db_user
   password = var.db_password
+}
+
+resource "google_compute_firewall" "allow_http_firewall" {
+  name    = "allow-http-firewall"
+  network = "default"
+
+  allow {
+    protocol = "icmp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["allow-http"]
 }
