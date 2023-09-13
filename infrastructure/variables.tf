@@ -1,29 +1,37 @@
 variable "project" {
-  type = string
+  description = "GCP project id."
+  type        = string
 }
 
 variable "credentials_file" {
-  type = string
+  description = "GCP service account credentials file path."
+  type        = string
 }
 
 variable "region" {
-  type    = string
-  default = "southamerica-east1"
+  type        = string
+  description = "GCP region for all resources."
+  default     = "southamerica-east1"
 }
 
 variable "zone" {
-  type    = string
-  default = "southamerica-east1-b"
+  type        = string
+  description = "GCP zone for all resources."
+  default     = "southamerica-east1-b"
 }
 
 variable "db_user" {
-  type = string
+  description = "Database user."
+  type        = string
+  default     = "postgres"
 }
 
 variable "db_password" {
-  type = string
+  description = "Database password."
+  type        = string
 }
 
 variable "local_ip" {
-  type = string
+  description = "Local machine IP address."
+  type        = string
 }
