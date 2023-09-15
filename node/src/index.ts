@@ -13,9 +13,11 @@ export interface Movie {
   name: string;
   release_date: Date;
   director: string;
-  description?: string;
-  duration?: number;
-  budget?: number;
+  description: string;
+  duration: number;
+  budget: number;
+  created_at: Date;
+  updated_at: Date;
 }
 
 const makeMovies = (): Movie[] => {
@@ -29,6 +31,8 @@ const makeMovies = (): Movie[] => {
       description: "any-description",
       duration: 1000,
       budget: 10000,
+      created_at: new Date(),
+      updated_at: new Date(),
     };
   }
   return result;

@@ -29,12 +29,14 @@ func createMovies() []Movie {
 	for i := 0; i < len(movies); i++ {
 		m := Movie{
 			ID:          uuid.New(),
-			Name:        "any-movie-name",
+			Name:        "any-name",
 			ReleaseDate: time.Now(),
-			Director:    "any-movie-director",
-			Description: "any-movie-description",
+			Director:    "any-director",
+			Description: "any-description",
 			Duration:    1000,
 			Budget:      10000,
+			CreatedAt:   time.Now(),
+			UpdatedAt:   time.Now(),
 		}
 		movies[i] = m
 	}

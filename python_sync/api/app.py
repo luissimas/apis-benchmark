@@ -26,9 +26,9 @@ class Movie:
     director: str
     created_at: datetime
     updated_at: datetime
-    description: Optional[str] = None
-    duration: Optional[int] = None
-    budget: Optional[int] = None
+    description: str
+    duration: int
+    budget: int
 
 
 def make_movies() -> List[Movie]:
