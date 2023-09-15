@@ -45,7 +45,18 @@ const pool = new Pool({ connectionString, max: 100 });
 
 fastify.get("/db", async (req, res) => {
   const result = await pool.query("SELECT * FROM movies LIMIT 20");
-  res.send(result.rows);
+  const movies: Movie[] = result.rows.map((r: any) => ({
+    id: r.id,
+    name: r.name,
+    release_date: new Date(r.release_date),
+    director: r.director,
+    description: r.description,
+    duration: Number(r.duration),
+    budget: Number(r.budget),
+    created_at: new Date(r.created_at),
+    updated_at: new Date(r.updated_at),
+  }));
+  res.send(movies);
 });
 fastify.get("/cache", async (req, res) => {
   const result = makeMovies();
