@@ -16,12 +16,14 @@ Foram conduzidos testes em dois cenários diferentes, a fim de explorar as perfo
 
 1. Serialização de JSON (endpoint =GET /cache=): gera 100 objetos em memória e os retorna serializados em um JSON de aproximadamente 386.6Kb
 2. Interação com o banco de dados (endpoint =GET /db=): busca 20 registros em um banco PostgreSQL e os retorna serializados em um JSON de aproximadamente 6Kb
-* Infraestrutura
-Para rodar o benchmark, as APIs foram executadas numa instância N1 Series do [[https://cloud.google.com/compute][Cloud Compute Engine]] com 1vCPU dedicado e 3.75Gb de RAM. Além disso, a base de dados foi executada numa instância do [[https://cloud.google.com/sql][Cloud SQL]] com 4vCPU, 16GB de RAM e 100GB de SSD.
-
-A ideia foi fazer com que o hardware do servidor fosse um fator limitante, e não o banco de dados. Outro ponto de destaque é que o servidor possui apenas um core, o que inibe possíveis ganhos de performance trazidos com paralelismo. Isso é especialmente relevante quando comparamos runtimes single-threaded como Node.js com linguagens como Go, que são capazes de fazer bom uso de ambientes computacionais multi-threaded.
 * Metodologia
-A simulação de carga feita com a ferramenta [[https://github.com/codesenberg/bombardier][bombardier]] rodando em uma máquina local. Foram feitas rodadas de teste com 1, 10, 50 e 100 conexões concorrentes. Cada rodada teve duração de 5 minutos. A unidade de medida que utilizamos é a de quantas requisições por segundo cada API foi capaz de processar.
+Para executar o benchmark foram utilizadas duas instâncias do [[https://cloud.google.com/compute][Cloud Compute Engine]]: uma no papel de *cliente* e a outra no papel de *servidor*. A máquina no papel de servidor irá executar as 4 APIs a serem testadas. Já a máquina no papel de cliente será responsável por fazer as requisições para o servidor, simulando alto tráfego.
+
+A máquina no papel de servidor é uma instância N1 Series com 1vCPU dedicado e 3.75Gb de memória RAM. Já a máquina no papel de cliente é também uma instância N1 Series, porém conta com 4vCPUs dedicados e 3.6Gb de memória RAM. Além disso, a base de dados foi executada numa instância do [[https://cloud.google.com/sql][Cloud SQL]] com 4vCPU, 8GB de RAM e 10GB de SSD.
+
+A ideia foi fazer com que o hardware do servidor fosse um fator limitante para a performance, e não o da máquina no papel de cliente ou o banco de dados. Outro ponto a ser levado em consideração é que o servidor possui apenas um core, o que inibe possíveis ganhos de performance trazidos com paralelismo. Isso é especialmente relevante quando comparamos runtimes single-threaded que só conseguem fazer uso de uma CPU como Node.js com linguagens como Go, que são capazes de fazer bom uso de ambientes computacionais com múltiplas CPUs.
+
+A simulação de carga feita com a ferramenta [[https://github.com/codesenberg/bombardier][bombardier]] rodando na instância no papel de cliente. Foram feitas rodadas de teste com 1, 10, 50 e 100 conexões concorrentes. Cada rodada teve duração de 5 minutos. O resultado de cada rodada é uma média de quantas requisições por segundo cada API foi capaz de processar.
 * Resultados
 No cenário de interação com o banco de dados foi possível verificar um ganho de performance bastante expressivo com o uso de drivers de banco de dados assíncronos na API com FastAPI. Além disso, o que mais surpreende é a diferença de performance entre a API em Fastify das outras implementações. Talvez o Node.js realmente seja um runtime bastante otimizado para aplicações single-threaded realizando operações IO-bound.
 
